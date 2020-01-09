@@ -13,7 +13,7 @@ class CreateCategoryPostPivotTable extends Migration
     public function up()
     {
         Schema::create('category_post', function (Blueprint $table) {
-            $table->bigInteger('ca tegory_id')->unsigned()->index();
+            $table->bigInteger('category_id')->unsigned()->index();
             $table->bigInteger('post_id')->unsigned()->index();
             $table->primary(['category_id', 'post_id']);
         });
