@@ -30,7 +30,7 @@
 // });
 
 Route::get('/', 'PagesController@home')->name('root');
-Route::get('/home', 'PagesController@home')->name('home');
+//Route::get('/home', 'PagesController@home')->name('home');
 Route::get('/about', 'PagesController@about');
 //Route::get('/contact', 'PagesController@contact');
 Route::get('/contact', 'TicketsController@create');
@@ -63,3 +63,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'mana
     Route::resource('posts', 'PostsController');
     Route::resource('categories', 'CategoriesController');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

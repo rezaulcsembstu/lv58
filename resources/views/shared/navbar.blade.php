@@ -6,8 +6,13 @@
   </button>
   <div class="collapse navbar-collapse float-right" id="navbarNavDropdown">
     <ul class="navbar-nav ml-auto">
+        @if (Auth::check())
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ url('/') }}">hi! {{ Auth::user()->name }} <span class="sr-only">(current)</span></a>
+            </li>
+        @endif
       <li class="nav-item active">
-      <a class="nav-link" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ url('about') }}">About</a>
