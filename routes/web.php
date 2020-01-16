@@ -12,17 +12,6 @@
 */
 
 /**
- * Latavel Default Pages
- */
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-/**
  * Sample Email Route
  */
 // Route::get('sendemail', function () {
@@ -38,6 +27,19 @@ Route::get('/home', 'HomeController@index')->name('home');
 //     return 'Your email has been sent successfully';
 
 // });
+
+
+
+/**
+ * Laravel Default Pages
+ */
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 /**
  * Basic Pages
@@ -57,15 +59,30 @@ Route::post('/ticket/{slug?}/delete', 'TicketsController@destroy');
 
 Route::post('/comment', 'CommentsController@newComment');
 
-Route::get('users/register', 'Auth\RegisterController@showRegistrationForm');
-Route::post('users/register', 'Auth\RegisterController@register');
-Route::get('users/login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('users/login', 'Auth\LoginController@login');
-Route::get('users/logout', 'Auth\LoginController@logout');
-
 Route::get('/blog', 'BlogsController@index');
 Route::get('/blog/{slug?}', 'BlogsController@show');
 
+
+/**
+ * Auth Routes from Book
+ */
+// Route::get('users/register', 'Auth\RegisterController@showRegistrationForm');
+// Route::post('users/register', 'Auth\RegisterController@register');
+// Route::get('users/login', 'Auth\LoginController@showLoginForm')->name('login');
+// Route::post('users/login', 'Auth\LoginController@login');
+// Route::get('users/logout', 'Auth\LoginController@logout');
+Route::get('users/custom/auth/register', 'SocialController@showRegistrationForm');
+Route::get('users/custom/auth/login', 'SocialController@showLoginForm')->name('login');
+
+/**
+ * Routes for Socialite
+ */
+Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
+Route::get('/callback/{provider}', 'SocialController@callback');
+
+/**
+ * Admin Routes
+ */
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'manager'], function () {
     // Route::get('users', 'UsersController@index');
     // Route::get('/user/{user?}', 'UsersController@show');
@@ -80,9 +97,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'mana
     Route::resource('posts', 'PostsController');
     Route::resource('categories', 'CategoriesController');
 });
-
-Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
-Route::get('/callback/{provider}', 'SocialController@callback');
 
 
 

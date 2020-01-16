@@ -41,4 +41,21 @@ class SocialController extends Controller
         }
         return $user;
     }
+
+    public function showRegistrationForm()
+    {
+
+         return view('custom.auth.register');
+
+
+    }
+
+    public function showLoginForm()
+    {
+
+         return view('custom.auth.login');
+
+
+    }
+
 }

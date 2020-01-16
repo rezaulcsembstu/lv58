@@ -33,8 +33,8 @@
                 @endif
                     {!! link_to_action('Auth\LoginController@logout', 'Logout', null, ['class' => 'dropdown-item']) !!}
             @else
-                {!! link_to_action('Auth\RegisterController@showRegistrationForm', 'Register', null, ['class' => 'dropdown-item']) !!}
-                {!! link_to_action('Auth\LoginController@showLoginForm', 'Login', null, ['class' => 'dropdown-item']) !!}
+                {!! link_to_action('SocialController@showRegistrationForm', 'Register', null, ['class' => 'dropdown-item']) !!}
+                {!! link_to_action('SocialController@showLoginForm', 'Login', null, ['class' => 'dropdown-item']) !!}
             @endif
             </div>
         </li>

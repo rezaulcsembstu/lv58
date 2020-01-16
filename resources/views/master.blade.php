@@ -11,6 +11,9 @@
     <!-- Material Design for Bootstrap CSS -->
     <link rel="stylesheet" href="{!! asset('css/bootstrap-material-design.min.css') !!}">
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{!! asset('css/all.min.css') !!}">
+
     <title> @yield('title') </title>
   </head>
   <body>
