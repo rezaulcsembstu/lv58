@@ -22,11 +22,6 @@ class PagesController extends Controller
         return view('products');
     }
 
-    public function services()
-    {
-        return view('services');
-    }
-
     public function welcome()
     {
         return view('custom.welcome');

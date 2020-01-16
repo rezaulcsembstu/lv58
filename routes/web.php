@@ -75,12 +75,14 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'mana
 
     Route::get('/products', 'PagesController@products');
 
-    Route::get('/home', 'HomeController@index')->name('home');
-
     Route::resource('users', 'UsersController');
     Route::resource('roles', 'RolesController');
     Route::resource('posts', 'PostsController');
     Route::resource('categories', 'CategoriesController');
 });
+
+Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
+Route::get('/callback/{provider}', 'SocialController@callback');
+
 
 
