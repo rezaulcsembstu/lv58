@@ -11,10 +11,20 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+/**
+ * Latavel Default Pages
+ */
+Route::get('/', function () {
+    return view('welcome');
+});
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+/**
+ * Sample Email Route
+ */
 // Route::get('sendemail', function () {
 
 //     $data = [ 'name' => 'Learning Laravel'];
@@ -29,17 +39,22 @@
 
 // });
 
-Route::get('/', 'PagesController@home')->name('root');
-//Route::get('/home', 'PagesController@home')->name('home');
+/**
+ * Basic Pages
+ */
+Route::get('/welcome', 'PagesController@welcome')->name('welcome');
+Route::get('/products', 'PagesController@products');
 Route::get('/about', 'PagesController@about');
 //Route::get('/contact', 'PagesController@contact');
 Route::get('/contact', 'TicketsController@create');
 Route::post('/contact', 'TicketsController@store');
+
 Route::get('/tickets', 'TicketsController@index');
 Route::get('/ticket/{slug?}', 'TicketsController@show');
 Route::get('/ticket/{slug?}/edit', 'TicketsController@edit');
 Route::post('/ticket/{slug?}/edit', 'TicketsController@update');
 Route::post('/ticket/{slug?}/delete', 'TicketsController@destroy');
+
 Route::post('/comment', 'CommentsController@newComment');
 
 Route::get('users/register', 'Auth\RegisterController@showRegistrationForm');
@@ -57,13 +72,15 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'mana
     // Route::get('/user/{slug?}/edit', 'UsersController@edit');
     // Route::post('/user/{slug?}/edit', 'UsersController@update');
     // Route::post('/user/{slug?}/delete', 'UsersController@destroy');
-    Route::get('/', 'PagesController@home');
+
+    Route::get('/products', 'PagesController@products');
+
+    Route::get('/home', 'HomeController@index')->name('home');
+
     Route::resource('users', 'UsersController');
     Route::resource('roles', 'RolesController');
     Route::resource('posts', 'PostsController');
     Route::resource('categories', 'CategoriesController');
 });
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');

@@ -26,7 +26,7 @@ class Manager
                 return $next($request);
 
             } else {
-                return redirect('home');
+                return redirect('products');
             }
 
         }

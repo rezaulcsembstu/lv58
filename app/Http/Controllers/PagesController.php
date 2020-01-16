@@ -7,12 +7,7 @@ use Illuminate\Http\Request;
 class PagesController extends Controller
 {
     //
-    public function home()
-    {
-        return view('home');
-    }
-
-    public function about()
+        public function about()
     {
         return view('about');
     }
@@ -20,5 +15,20 @@ class PagesController extends Controller
     public function contact()
     {
         return view('contact');
+    }
+
+    public function products()
+    {
+        return view('products');
+    }
+
+    public function services()
+    {
+        return view('services');
+    }
+
+    public function welcome()
+    {
+        return view('custom.welcome');
     }
 }
