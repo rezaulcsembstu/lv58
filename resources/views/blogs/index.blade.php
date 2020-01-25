@@ -34,6 +34,9 @@
                     @endif
                 </div>
             </div>
+            <div class="col-md-4 offset-md-4 text-center">
+                {{ $posts->links() }}
+            </div>
         </div>
     </div>
 @endsection

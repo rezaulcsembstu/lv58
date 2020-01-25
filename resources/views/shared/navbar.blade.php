@@ -1,6 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
   <div class="container">
-    <a class="navbar-brand" href="{{ url('/') }}">Learning Laravel</a>
+    <a class="navbar-brand" href="{{ url('/') }}">
+        <img src="{!! asset('images/logo.png') !!}" class="img-fluid rounded-circle" alt=""> Learning Laravel
+    </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -33,8 +35,8 @@
                 @endif
                     {!! link_to_action('Auth\LoginController@logout', 'Logout', null, ['class' => 'dropdown-item']) !!}
             @else
-                {!! link_to_action('SocialController@showRegistrationForm', 'Register', null, ['class' => 'dropdown-item']) !!}
-                {!! link_to_action('SocialController@showLoginForm', 'Login', null, ['class' => 'dropdown-item']) !!}
+                {!! link_to_action('SocialsController@showRegistrationForm', 'Register', null, ['class' => 'dropdown-item']) !!}
+                {!! link_to_action('SocialsController@showLoginForm', 'Login', null, ['class' => 'dropdown-item']) !!}
             @endif
             </div>
         </li>

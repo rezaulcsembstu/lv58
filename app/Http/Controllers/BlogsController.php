@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Post;
 use App\Comment;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 
 class BlogsController extends Controller
 {
@@ -16,7 +17,7 @@ class BlogsController extends Controller
     public function index()
     {
         //
-        $posts = Post::all();
+        $posts = Post::paginate(10);
 
         return view('blogs.index')->with('posts', $posts);
     }
@@ -94,5 +95,18 @@ class BlogsController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Display a listing of the resource in json format.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function json()
+    {
+        //
+        $posts = Post::paginate(10);
+        $response = Response::json($posts, 200);
+        return $response;
     }
 }

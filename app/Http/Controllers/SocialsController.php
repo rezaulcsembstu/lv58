@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Socialite;
 use App\User;
 
-class SocialController extends Controller
+class SocialsController extends Controller
 {
     //
     public function redirect($provider)
@@ -19,15 +19,15 @@ class SocialController extends Controller
 
         $getInfo = Socialite::driver($provider)->user();
 
-        $user = $this->createUser($getInfo,$provider);
+        $user = $this->createUser($getInfo, $provider);
 
         auth()->login($user);
 
         return redirect()->to('/home');
-
     }
 
-    protected function createUser($getInfo,$provider) {
+    protected function createUser($getInfo, $provider)
+    {
 
         $user = User::where('provider_id', $getInfo->id)->first();
 
@@ -45,17 +45,12 @@ class SocialController extends Controller
     public function showRegistrationForm()
     {
 
-         return view('custom.auth.register');
-
-
+        return view('custom.auth.register');
     }
 
     public function showLoginForm()
     {
 
-         return view('custom.auth.login');
-
-
+        return view('custom.auth.login');
     }
-
 }

@@ -42,6 +42,7 @@
                         <a href="{{ url('/auth/redirect/github') }}" class="btn btn-outline-info"><i class="fab fa-github"></i> Github</a>
                         <a href="{{ url('/auth/redirect/linkedin') }}" class="btn btn-outline-info"><i class="fab fa-linkedin"></i> Linkedin</a>
                         <a href="{{ url('/auth/redirect/google') }}" class="btn btn-outline-info"><i class="fab fa-google"></i> Google</a>
+                        <a href="{{ url('/auth/redirect/twitter') }}" class="btn btn-outline-info"><i class="fab fa-twitter"></i> Twitter</a>
                         </form>
                 </div>
                 <div class="card-footer text-muted">

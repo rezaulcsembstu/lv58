@@ -14,17 +14,11 @@
 
                         {!! Form::token() !!}
 
-                        @foreach ($errors->all() as $error)
-                            <div class="alert alert-danger" role="alert">
-                                <strong>{{ $error }}</strong>
-                            </div>
-                        @endforeach
+                        @component('shared.error')
+                        @endcomponent
 
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                <strong>{{ session('status') }}</strong>
-                            </div>
-                        @endif
+                        @component('shared.session')
+                        @endcomponent
 
                         <div class="form-group">
                             {!! Form::label('title', 'Title', ['class' => 'bmd-label-floating']) !!}

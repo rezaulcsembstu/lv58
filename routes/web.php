@@ -45,6 +45,8 @@ Route::get('/home', 'HomeController@index')->name('home');
  * Basic Pages
  */
 Route::get('/welcome', 'PagesController@welcome')->name('welcome');
+//test route
+Route::get('/test', 'PagesController@test');
 Route::get('/products', 'PagesController@products');
 Route::get('/about', 'PagesController@about');
 //Route::get('/contact', 'PagesController@contact');
@@ -71,14 +73,14 @@ Route::get('/blog/{slug?}', 'BlogsController@show');
 // Route::get('users/login', 'Auth\LoginController@showLoginForm')->name('login');
 // Route::post('users/login', 'Auth\LoginController@login');
 // Route::get('users/logout', 'Auth\LoginController@logout');
-Route::get('users/custom/auth/register', 'SocialController@showRegistrationForm');
-Route::get('users/custom/auth/login', 'SocialController@showLoginForm')->name('login');
+Route::get('users/custom/auth/register', 'SocialsController@showRegistrationForm')->name('custom.register');
+Route::get('users/custom/auth/login', 'SocialsController@showLoginForm')->name('custom.login');
 
 /**
  * Routes for Socialite
  */
-Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
-Route::get('/callback/{provider}', 'SocialController@callback');
+Route::get('/auth/redirect/{provider}', 'SocialsController@redirect');
+Route::get('/callback/{provider}', 'SocialsController@callback');
 
 /**
  * Admin Routes
@@ -98,5 +100,5 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'mana
     Route::resource('categories', 'CategoriesController');
 });
 
-
-
+Route::get('/json', 'BlogsController@json');
+Route::get('/images/upload', 'ImagesController@imageUpload');
