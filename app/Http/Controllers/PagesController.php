@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Facebook\Facebook;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -22,6 +23,11 @@ class PagesController extends Controller
 
     public function products()
     {
+        $fb = new Facebook([
+            'app_id' => env('FACEBOOK_ID'),
+            'app_secret' => env('FACEBOOK_SECRET'),
+            'default_graph_version' => 'v5.0',
+        ]);
         return view('products');
     }
 
@@ -35,5 +41,5 @@ class PagesController extends Controller
         phpinfo();
 
     }
-    
+
 }
