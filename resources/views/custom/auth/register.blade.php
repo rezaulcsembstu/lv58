@@ -43,7 +43,8 @@
                         <a href="{{ url('/auth/redirect/linkedin') }}" class="btn btn-outline-info"><i class="fab fa-linkedin"></i> Linkedin</a>
                         <a href="{{ url('/auth/redirect/google') }}" class="btn btn-outline-info"><i class="fab fa-google"></i> Google</a>
                         <a href="{{ url('/auth/redirect/twitter') }}" class="btn btn-outline-info"><i class="fab fa-twitter"></i> Twitter</a>
-                        </form>
+                        <a href="{{ url('/auth/redirect/facebook') }}" class="btn btn-outline-info"><i class="fab fa-facebook"></i> Facebook</a>
+                    </form>
                 </div>
                 <div class="card-footer text-muted">
                     -0-
