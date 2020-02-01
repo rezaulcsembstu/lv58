@@ -23,11 +23,6 @@ class PagesController extends Controller
 
     public function products()
     {
-        $fb = new Facebook([
-            'app_id' => env('FACEBOOK_ID'),
-            'app_secret' => env('FACEBOOK_SECRET'),
-            'default_graph_version' => 'v5.0',
-        ]);
         return view('products');
     }
 

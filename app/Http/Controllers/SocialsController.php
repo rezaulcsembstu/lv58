@@ -32,7 +32,12 @@ class SocialsController extends Controller
         $user = User::where('provider_id', $getInfo->id)->first();
 
         if (!$user) {
-            $user = User::create([
+            $user = User::updateOrCreate(
+            [
+                'email'    => $getInfo->email,
+                'provider' => $provider,
+            ],
+            [
                 'name'     => $getInfo->name,
                 'email'    => $getInfo->email,
                 'provider' => $provider,

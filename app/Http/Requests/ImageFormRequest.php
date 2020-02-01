@@ -13,7 +13,7 @@ class ImageFormRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,6 +25,7 @@ class ImageFormRequest extends FormRequest
     {
         return [
             //
+            'image' => 'required',
         ];
     }
 }

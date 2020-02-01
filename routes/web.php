@@ -101,4 +101,4 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'mana
 });
 
 Route::get('/json', 'BlogsController@json');
-Route::get('/images/upload', 'ImagesController@imageUpload');
+Route::resource('images', 'ImagesController');
