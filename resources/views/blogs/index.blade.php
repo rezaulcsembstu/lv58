@@ -4,7 +4,7 @@
 @section('content')
     <div class="container mt-5">
         <div class="row">
-            <div class="col-md-10 offset-md-1">
+            <div class="col-10 offset-1">
                 <div class="card">
                     <div class="card-header">
                         <h3>Posts</h3>
@@ -20,7 +20,7 @@
                         @foreach ($posts as $post)
                             <div class="container mt-5">
                         <div class="row">
-                            <div class="col-md-10 offset-md-1">
+                            <div class="col-10 offset-1">
                                 <div class="card">
                                     <div  class="card-header"><a href="{!! action('BlogsController@show', ['slug' => $post->slug]) !!}">{!! $post->title !!}</a></div>
                                     <div class="card-body">
@@ -34,8 +34,8 @@
                     @endif
                 </div>
             </div>
-            <div class="col-md-4 offset-md-4 text-center">
-                {{ $posts->links() }}
+            <div class="col-4 offset-4 text-center mt-3">
+                {{ $posts->render() }}
             </div>
         </div>
     </div>

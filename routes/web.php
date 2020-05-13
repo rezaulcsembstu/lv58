@@ -49,7 +49,7 @@ Route::get('/welcome', 'PagesController@welcome')->name('welcome');
 Route::get('/test', 'PagesController@test');
 Route::get('/products', 'PagesController@products');
 Route::get('/about', 'PagesController@about');
-//Route::get('/contact', 'PagesController@contact');
+Route::get('/contactCrop', 'PagesController@contactCrop');
 Route::get('/contact', 'TicketsController@create');
 Route::post('/contact', 'TicketsController@store');
 
@@ -68,13 +68,21 @@ Route::get('/blog/{slug?}', 'BlogsController@show');
 /**
  * Auth Routes from Book
  */
-// Route::get('users/register', 'Auth\RegisterController@showRegistrationForm');
-// Route::post('users/register', 'Auth\RegisterController@register');
-// Route::get('users/login', 'Auth\LoginController@showLoginForm')->name('login');
-// Route::post('users/login', 'Auth\LoginController@login');
-// Route::get('users/logout', 'Auth\LoginController@logout');
-Route::get('users/custom/auth/register', 'SocialsController@showRegistrationForm')->name('custom.register');
-Route::get('users/custom/auth/login', 'SocialsController@showLoginForm')->name('custom.login');
+// Route::get('users/register', 'Auth\RegisterController@showRegistrationForm')->name('default.register');
+// Route::get('users/login', 'Auth\LoginController@showLoginForm')->name('default.login');
+// Route::get('users/logout', 'Auth\LoginController@logout')->name('default.logout');
+Route::get('users/custom/auth/socials/register', 'SocialsController@showRegistrationForm')->name('custom.auth.socials.register');
+Route::post('users/custom/auth/socials/register', 'Auth\RegisterController@register');
+Route::get('users/custom/auth/socials/login', 'SocialsController@showLoginForm')->name('custom.auth.socials.login');
+Route::post('users/custom/auth/socials/login', 'Auth\LoginController@login');
+
+/**
+ * Route for AJAX Auth
+ */
+Route::get('users/custom/auth/ajax/register', 'AjaxController@getRegister');
+Route::post('users/custom/auth/ajax/register', 'AjaxController@postRegister');
+Route::get('users/custom/auth/ajax/login', 'AjaxController@getLogin');
+Route::post('users/custom/auth/ajax/login', 'AjaxController@postLogin');
 
 /**
  * Routes for Socialite
@@ -82,17 +90,27 @@ Route::get('users/custom/auth/login', 'SocialsController@showLoginForm')->name('
 Route::get('/auth/redirect/{provider}', 'SocialsController@redirect');
 Route::get('/callback/{provider}', 'SocialsController@callback');
 
+Route::get('/json', 'BlogsController@json');
+
+/**
+ * Image realated routes
+ */
+Route::resource('images', 'ImagesController');
+Route::post('upload', 'ImagesController@store');
+Route::post('storeImages', 'ImagesController@storeImages');
+Route::post('croppedImage', 'ImagesController@storeCroppedImage');
 /**
  * Admin Routes
  */
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'manager'], function () {
+//Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['role:super-admin|admin|manager']], function () {
     // Route::get('users', 'UsersController@index');
     // Route::get('/user/{user?}', 'UsersController@show');
     // Route::get('/user/{slug?}/edit', 'UsersController@edit');
     // Route::post('/user/{slug?}/edit', 'UsersController@update');
     // Route::post('/user/{slug?}/delete', 'UsersController@destroy');
 
-    Route::get('/products', 'PagesController@products');
+    Route::get('home', 'PagesController@home')->name('admin.home');
 
     Route::resource('users', 'UsersController');
     Route::resource('roles', 'RolesController');
@@ -100,5 +118,3 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'mana
     Route::resource('categories', 'CategoriesController');
 });
 
-Route::get('/json', 'BlogsController@json');
-Route::resource('images', 'ImagesController');

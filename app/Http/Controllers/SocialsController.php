@@ -50,12 +50,12 @@ class SocialsController extends Controller
     public function showRegistrationForm()
     {
 
-        return view('custom.auth.register');
+        return view('custom.auth.socials.register');
     }
 
     public function showLoginForm()
     {
 
-        return view('custom.auth.login');
+        return view('custom.auth.socials.login');
     }
 }

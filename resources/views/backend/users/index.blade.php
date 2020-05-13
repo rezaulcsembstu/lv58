@@ -4,7 +4,7 @@
 @section('content')
     <div class="container mt-5">
         <div class="row">
-            <div class="col-md-10 offset-md-1">
+            <div class="col-10 offset-1">
                 <div class="card">
                     <div class="card-header">
                         <h3>Users</h3>

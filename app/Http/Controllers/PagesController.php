@@ -16,25 +16,29 @@ class PagesController extends Controller
         return view('about');
     }
 
-    public function contact()
+    public function contactCrop()
     {
-        return view('contact');
+        return view('contactCrop');
     }
 
     public function products()
     {
+        alert()->success('Arrived!', 'Product Page!')->persistent('Click to close!');
+
         return view('products');
     }
 
     public function welcome()
     {
-        return view('custom.welcome');
+        $quotesRaw = file_get_contents(storage_path('app/public/asset/') . 'quotes.json');
+        $quotesJson = json_decode($quotesRaw, true);
+        $randomQuote = $quotesJson['quotes'][rand(0, count($quotesJson['quotes']))];
+        return view('custom.welcome')->with('quote', $randomQuote);
     }
 
     public function test()
     {
         phpinfo();
-
     }
 
 }

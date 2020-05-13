@@ -6,3 +6,30 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+// Tailwind
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+// FA font path
+$fa-font-path: "../webfonts";
+
+// Font Awesome 5
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/brands.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+@import "~@fortawesome/fontawesome-free/scss/regular.scss";
+
+// Ladda
+@import "~ladda/css/ladda-themed.scss";
+
+// Jquery UI
+@import '~jquery-ui/themes/base/all.css';
+
+// Cropperjs
+@import '~cropperjs/src/index.scss';
+

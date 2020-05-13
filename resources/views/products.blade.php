@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row banner">
 
-            <div class="col-md-12">
+            <div class="col-12">
 
                 <h1 class="text-center mt-5 editContent">
                     Learning Laravel 5

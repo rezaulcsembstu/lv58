@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\Comment;
 use Illuminate\Http\Request;
+use UxWeb\SweetAlert\SweetAlert;
 use Illuminate\Support\Facades\Response;
 
 class BlogsController extends Controller
@@ -17,7 +18,10 @@ class BlogsController extends Controller
     public function index()
     {
         //
+        //$posts = Post::all();
         $posts = Post::paginate(10);
+        //$posts = Post::simplePaginate(10);
+        //$posts = DB::table('posts')->paginate(10);
 
         return view('blogs.index')->with('posts', $posts);
     }
@@ -107,6 +111,7 @@ class BlogsController extends Controller
         //
         $posts = Post::paginate(10);
         $response = Response::json($posts, 200);
+        //!d($response);
         return $response;
     }
 }

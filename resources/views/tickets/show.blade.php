@@ -4,7 +4,7 @@
 @section('content')
     <div class="container mt-5">
         <div class="row">
-            <div class="col-md-10 offset-md-1">
+            <div class="col-10 offset-1">
                 <div class="card">
                     <div class="card-header">
                         <h3>Title: {!! $ticket->title !!}</h3>
@@ -32,7 +32,7 @@
     @if ($comments->isEmpty())
         <div class="container mt-5">
         <div class="row">
-            <div class="col-md-10 offset-md-1">
+            <div class="col-10 offset-1">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">There is no comment.</h5>
@@ -45,7 +45,7 @@
         @foreach ($comments as $comment)
             <div class="container mt-5">
         <div class="row">
-            <div class="col-md-10 offset-md-1">
+            <div class="col-10 offset-1">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Content: {!! $comment->content !!}</h5>
@@ -59,7 +59,7 @@
 
     <div class="container mt-5">
     <div class="row">
-        <div class="col-md-8 offset-md-2">
+        <div class="col-8 offset-2">
             <div class="card text-left">
                 <div class="card-header">
                     <h4>Comment</h4>
